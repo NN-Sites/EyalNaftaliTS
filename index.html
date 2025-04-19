@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אייל פתרונות נסיעה</title>
+    <title>אייל פתרונות נסיעה - הסעות ומוניות לכל חלקי הארץ</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+        html {
+       scroll-behavior: smooth;
+      }
         body {
             margin: 0;
             font-family: 'Rubik', sans-serif;
@@ -40,9 +43,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 30px;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 10px;
             background-image: url('https://images.pexels.com/photos/462867/pexels-photo-462867.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
             background-size: cover;
             background-position: center;
@@ -131,6 +134,64 @@
             color: lightgray;
             text-decoration: none;
         }
+        .services-section {
+  background-color: #5f5df5;
+  color: white;
+  text-align: center;
+  padding: 60px 20px 40px;
+}
+
+.services-section h2 {
+  font-size: 40px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.services-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 20px;
+  direction: rtl;
+}
+
+.service-box {
+  background: white;
+  width: 280px;
+  border-radius: 15px;
+  padding: 30px 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.service-box:hover {
+  transform: translateY(-5px);
+}
+
+.service-icon {
+  font-size: 40px;
+  background: #5f5df5;
+  color: white;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 50%;
+  margin: 0 auto 15px;
+}
+
+.service-box h3 {
+  margin: 10px 0;
+  font-size: 22px;
+}
+
+.service-box p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
     </style>
 </head>
 <body>
@@ -159,6 +220,50 @@
         עמידה בזמנים ונוחות מירבית.
         צרו איתנו קשר להזמנת נסיעה ותיהנו משירות הסעות איכותי ואמין!</p>
         <div class="separator-line"></div>
+        <section class="services-section">
+            <h2>השירותים שלנו</h2>
+          </section>
+          
+          <section class="services-container">
+          
+            <div class="service-box">
+              <div class="service-icon">🚖</div>
+              <h3>נסיעות בעיר</h3>
+              <p>מוניות נוחות ומהירות בתוך העיר, לכל מקום שצריך.</p>
+            </div>
+          
+            <div class="service-box">
+              <div class="service-icon">🛫</div>
+              <h3>נסיעות לנתב"ג</h3>
+              <p>נסיעות לשדה התעופה 24/7, עם מקום למזוודות גדולות.</p>
+            </div>
+          
+            <div class="service-box">
+              <div class="service-icon">🕒</div>
+              <h3>שירות לפי שעה</h3>
+              <p>נהג צמוד לפי שעה לפגישות, אירועים או שליחויות.</p>
+            </div>
+          
+            <div class="service-box">
+              <div class="service-icon">💍</div>
+              <h3>הסעות לאירועים</h3>
+              <p>נסיעות הלוך וחזור לאירועים בכל חלקי הארץ ובכל שעה.</p>
+            </div>
+          
+            <div class="service-box">
+              <div class="service-icon">🏢</div>
+              <h3>מוניות לעסקים</h3>
+              <p>שירות VIP לחברות ולקוחות עסקיים לפי חשבונית.</p>
+            </div>
+          
+            <div class="service-box">
+              <div class="service-icon">📍</div>
+              <h3>נסיעות בין עירוניות</h3>
+              <p>הסעות נוחות לכל רחבי הארץ במחירים משתלמים.</p>
+            </div>
+          
+          </section>
+          
     </div>
     <div class="bottom-section" id="contact">
         <h2>יצירת קשר</h2>
