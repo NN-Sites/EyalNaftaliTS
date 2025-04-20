@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הרכבים שלנו</title>
+  <style>
+    /* הגדרת הפונט */
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: #fff200;
+      margin: 0;
+      padding: 0;
+      direction: rtl; /* קריאה מימין לשמאל */
+      text-align: right; /* תצוגה מימין לשמאל */
+    }
+
+    .car-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .car-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #c9c9c9;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      margin: 10px 0;
+      padding: 20px;
+      width: 80%;
+      max-width: 900px;
+    }
+
+    .car-info {
+      flex: 1;
+      padding: 10px;
+    }
+
+    .car-info h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: #000000;
+    }
+
+    .car-info p {
+      font-size: 16px;
+      color: #000000;
+    }
+
+    .car-image img {
+      width: 220px;
+      height: 120px;
+      object-fit: cover;
+    }
+    .button {
+      background-color: #4CAF50; /* צבע רקע ירוק */
+      border: none;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 15px 30px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      border-radius: 8px;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button:hover {
+      background-color: #45a049; /* שינוי צבע בזמן ריחוף */
+      transform: scale(1.05); /* אפקט של הגדלה */
+    }
+
+    .button:active {
+      background-color: #388e3c; /* שינוי צבע בזמן לחיצה */
+      transform: scale(0.95); /* אפקט של הקטנה בזמן לחיצה */
+    }
+    h1 {
+      font-size: 40px;
+      color: #000000;
+      margin-bottom: 0px;
+        text-align: center;
+    }
+  </style>
+</head>
+<body>
+    <h1>הרכבים שלנו</h1>
+  <div class="car-container">
+    <div class="car-item">
+      <div class="car-info">
+        <h2>מוניות 4 מקומות</h2>
+      </div>
+      <div class="car-image">
+        <img src="https://i.postimg.cc/SK59dWk4/Untitled-design-11-removebg-preview.png" alt="רכב 1">
+      </div>
+    </div>
+    <div class="car-item">
+      <div class="car-info">
+        <h2>ואן מפואר - מוניות 5-7 מקומות</h2>
+      </div>
+      <div class="car-image">
+        <img src="https://i.postimg.cc/YSQDBq9J/2021-Toyota-Sienna-XLE-Hybrid-front-12-21-21-removebg-preview.png" alt="רכב 2">
+      </div>
+    </div>
+    <div class="car-item">
+        <div class="car-info">
+          <h2>מיניבוס 19 מקומות</h2>
+        </div>
+        <div class="car-image">
+          <img src="https://i.postimg.cc/yYJPzYpv/Whats-App-2025-04-20-11-10-14-28151d97.jpg" alt="רכב 2">
+        </div>
+      </div>
+      <div class="car-item">
+        <div class="car-info">
+          <h2>מיניבוס 23 מקומות</h2>
+        </div>
+        <div class="car-image">
+          <img src="https://i.postimg.cc/7YcKCTJF/Whats-App-2025-04-20-11-10-14-d44f9904-removebg-preview.png" alt="רכב 2">
+        </div>
+      </div>
+      <div class="car-item">
+          <div class="car-info">
+            <h2>אוטובוסים</h2>
+          </div>
+          <div class="car-image">
+            <img src="" alt="רכב 2">
+          </div>
+        </div>
+        <a href="index.html" class="button">חזרה לאתר</a>
+
+</body>
+</html>
