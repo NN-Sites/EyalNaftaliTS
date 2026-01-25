@@ -20,6 +20,7 @@
         html { scroll-behavior: smooth; }
         body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
 
+        /* Navbar */
         .navbar {
             background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
@@ -42,6 +43,7 @@
         }
         .nav-links a:hover { color: var(--primary); }
 
+        /* Hero */
         .hero {
             height: 60vh;
             min-height: 450px;
@@ -61,17 +63,22 @@
         .hero-content p { font-size: 1.3rem; margin-bottom: 30px; }
 
         .btn {
-            padding: 12px 30px;
+            padding: 12px 35px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 800;
             transition: var(--transition);
             display: inline-block;
             margin: 5px;
+            border: none;
+            cursor: pointer;
         }
         .btn-primary { background: var(--primary); color: var(--dark); }
+        .btn-primary:hover { background: #fff; transform: scale(1.05); }
         .btn-secondary { background: white; color: var(--dark); }
+        .btn-secondary:hover { background: var(--primary); }
 
+        /* Sections */
         .section-padding { padding: 60px 10%; }
         .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
         .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); margin: 10px auto; }
@@ -93,41 +100,50 @@
         .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
+        /* Floating WhatsApp */
         .float-ws {
             position: fixed;
             bottom: 25px;
             left: 25px;
             background: var(--accent);
             color: white;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 28px;
+            font-size: 32px;
             z-index: 3000;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: var(--transition);
         }
+        .float-ws:hover { transform: scale(1.1) rotate(10deg); }
 
-        .contact-box { background: var(--dark); color: white; border-radius: 20px; padding: 40px; text-align: center; }
-        footer { background: #000; color: #777; text-align: center; padding: 20px; }
+        /* Contact Box */
+        .contact-box { background: var(--dark); color: white; border-radius: 25px; padding: 50px 20px; text-align: center; }
+        .no-shabbat { color: #ff4d4d; font-weight: bold; display: block; margin-bottom: 15px; font-size: 1.1rem; }
+
+        footer { background: #000; color: #888; text-align: center; padding: 25px; font-size: 0.9rem; border-top: 1px solid #222; }
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero { height: 50vh; }
+            .hero { height: 50vh; min-height: 400px; }
+            .section-padding { padding: 40px 5%; }
         }
     </style>
 </head>
 <body>
 
     <nav class="navbar">
-        <img src="https://i.postimg.cc/MT0f0gTk/image.png" alt="לוגו" height="45">
+        <div class="logo">
+            <img src="https://i.postimg.cc/MT0f0gTk/image.png" alt="אייל פתרונות נסיעה" height="45">
+        </div>
         <div class="nav-links">
             <a href="#home">בית</a>
             <a href="#about">אודות</a>
             <a href="#services">שירותים</a>
-            <a href="#contact">צור קשר</a>
+            <a href="#contact">הזמנה</a>
         </div>
     </nav>
 
@@ -136,7 +152,7 @@
             <h1>אייל פתרונות נסיעה</h1>
             <p>חוויית נסיעה VIP - מה שנוח ללקוח.</p>
             <div class="cta-buttons">
-                <a href="tel:0545510276" class="btn btn-primary"><i class="fas fa-phone"></i> 054-551-0276</a>
+                <a href="tel:0545510276" class="btn btn-primary"><i class="fas fa-phone"></i> חייגו: 054-551-0276</a>
                 <a href="OrderForm.html" class="btn btn-secondary">הזמנת נסיעה</a>
             </div>
         </div>
@@ -144,36 +160,39 @@
 
     <section class="section-padding" id="about">
         <h2 class="section-title">הסעות ברמה אחרת</h2>
-        <div style="max-width: 700px; margin: 0 auto; text-align: center;">
-            <p>שירותי הסעה מקצועיים ואמינים לכל מטרה. מוניות, מיניבוסים ואוטובוסים חדישים המותאמים אישית לצרכים שלך.</p>
+        <div style="max-width: 750px; margin: 0 auto; text-align: center;">
+            <p>אנחנו מתמחים במתן פתרונות תחבורה מתקדמים לכל רחבי הארץ. עם דגש על עמידה בזמנים, רכבים נקיים ושירות אדיב, אנחנו מבטיחים לכם שקט נפשי מהרגע שסגרתם ועד ההגעה ליעד.</p>
         </div>
     </section>
 
     <section class="section-padding" id="services" style="background: #f1f1f1;">
         <h2 class="section-title">השירותים שלנו</h2>
         <div class="services-grid">
-            <div class="service-card"><i class="fas fa-plane"></i><h3>נתב"ג</h3><p>נסיעות לשדה התעופה 24/6 עם רכבים מרווחים.</p></div>
-            <div class="service-card"><i class="fas fa-road"></i><h3>בין-עירוני</h3><p>הסעות לכל רחבי הארץ בנוחות מקסימלית.</p></div>
-            <div class="service-card"><i class="fas fa-bus"></i><h3>קבוצות</h3><p>מיניבוסים ואוטובוסים לטיולים ואירועים.</p></div>
-            <div class="service-card"><i class="fas fa-star"></i><h3>VIP</h3><p>שירות עסקי יוקרתי ללקוחות וחברות.</p></div>
+            <div class="service-card"><i class="fas fa-plane-departure"></i><h3>נתב"ג</h3><p>איסוף והורדה מכל מקום לנתב"ג, 24 שעות ביממה (לא בשבת).</p></div>
+            <div class="service-card"><i class="fas fa-map-marked-alt"></i><h3>בין-עירוני</h3><p>נסיעות ארוכות ונוחות לכל חלקי הארץ במחירים הוגנים.</p></div>
+            <div class="service-card"><i class="fas fa-shuttle-van"></i><h3>קבוצות ואירועים</h3><p>מיניבוסים ואוטובוסים חדישים לחתונה, בר מצווה או טיול.</p></div>
+            <div class="service-card"><i class="fas fa-user-tie"></i><h3>שירות VIP</h3><p>נהגים מקצועיים ודיסקרטיים לנסיעות עסקיות ופרטיות.</p></div>
         </div>
     </section>
 
     <section class="section-padding" id="contact">
         <div class="contact-box">
-            <p style="color: #ff4d4d; margin-bottom: 10px;">* לא בשבתות וחגים *</p>
-            <h2>דברו איתנו</h2>
-            <div class="cta-buttons" style="margin-top: 20px;">
-                <a href="https://wa.me/972545510276" class="btn" style="background: var(--accent); color: white;">WhatsApp</a>
-                <a href="tel:0545510276" class="btn btn-primary">חיוג ישיר</a>
+            <span class="no-shabbat">* שומרים שבת - המערכת לא פעילה בשבתות וחגים *</span>
+            <h2>להזמנה מהירה</h2>
+            <p style="margin-bottom: 25px;">לחצו על האמצעי הנוח לכם ונתאם את הנסיעה שלכם</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/972545510276" class="btn" style="background: var(--accent); color: white;"><i class="fab fa-whatsapp"></i> הודעת WhatsApp</a>
+                <a href="tel:0545510276" class="btn btn-primary"><i class="fas fa-phone-alt"></i> שיחה טלפונית</a>
             </div>
         </div>
     </section>
 
-    <a href="https://wa.me/972545510276" class="float-ws"><i class="fab fa-whatsapp"></i></a>
+    <a href="https://wa.me/972545510276" class="float-ws" title="שלחו לנו הודעה">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer>
-        &copy; 2026 אייל פתרונות נסיעה | <a href="mailto:turbobizzofficial@gmail.com" style="color: #999;">TurboBiz</a>
+        &copy; 2026 אייל פתרונות נסיעה. כל הזכויות שמורות.
     </footer>
 
 </body>
