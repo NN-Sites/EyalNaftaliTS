@@ -3,28 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>אייל פתרונות נסיעה | פרימיום של הסעות</title>
-    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>אייל פתרונות נסיעה | VIP Transportation & Executive Chauffeur Services</title>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&family=Cinzel:wght@600;700&family=Heebo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --primary: #FFD700;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --accent: #25D366;
-            --transition: all 0.3s ease;
+            --bg-dark: #0a0a0c;
+            --bg-card: #121216;
+            --bg-card-hover: #1c1c24;
+            --gold-primary: #d4af37;
+            --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+            --gold-glow: rgba(212, 175, 55, 0.3);
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --accent-green: #25d366;
+            --border-color: rgba(212, 175, 55, 0.2);
+            --font-main: 'Heebo', sans-serif;
+            --font-accent: 'Cinzel', serif;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* Footer Root Variables */
+            --footer-bg-dark: #090d16;
+            --footer-accent-gradient: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            --footer-text-main: #ffffff;
+            --footer-text-muted: #94a3b8;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Assistant', sans-serif; }
-        html { scroll-behavior: smooth; }
-        body { background-color: var(--light); color: var(--dark); line-height: 1.6; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-main);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Ambient Glow Backgrounds */
+        .ambient-glow {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--gold-glow) 0%, rgba(0,0,0,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
 
         /* Navbar */
         .navbar {
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 0.8rem 5%;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 1.2rem 8%;
             position: fixed;
             width: 100%;
             top: 0;
@@ -32,167 +83,702 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 48px;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.4));
+        }
+
+        .brand-name {
+            font-size: 1.4rem;
+            font-weight: 900;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         .nav-links a {
-            color: white;
+            color: var(--text-muted);
             text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--gold-gradient);
             transition: var(--transition);
         }
-        .nav-links a:hover { color: var(--primary); }
 
-        /* Hero */
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 14px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .btn-gold {
+            background: var(--gold-gradient);
+            color: #000;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .btn-gold::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, #ffffff 0%, #d4af37 100%);
+            opacity: 0;
+            z-index: -1;
+            transition: var(--transition);
+        }
+
+        .btn-gold:hover::before {
+            opacity: 1;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-glass:hover {
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--gold-primary);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Section */
         .hero {
-            height: 60vh;
-            min-height: 450px;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(10,10,12,0.4) 0%, rgba(10,10,12,1) 95%),
                         url('https://i.postimg.cc/yYJPzYpv/Whats-App-2025-04-20-11-10-14-28151d97.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
-            padding-top: 60px;
+            padding: 140px 5% 80px;
         }
 
-        .hero-content h1 { font-size: clamp(2rem, 6vw, 3.5rem); margin-bottom: 10px; }
-        .hero-content p { font-size: 1.3rem; margin-bottom: 30px; }
+        .hero-content {
+            max-width: 900px;
+            z-index: 2;
+        }
 
-        .btn {
-            padding: 12px 35px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 800;
-            transition: var(--transition);
+        .hero-badge {
             display: inline-block;
-            margin: 5px;
-            border: none;
-            cursor: pointer;
+            padding: 6px 18px;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
         }
-        .btn-primary { background: var(--primary); color: var(--dark); }
-        .btn-primary:hover { background: #fff; transform: scale(1.05); }
-        .btn-secondary { background: white; color: var(--dark); }
-        .btn-secondary:hover { background: var(--primary); }
 
-        /* Sections */
-        .section-padding { padding: 60px 10%; }
-        .section-title { text-align: center; font-size: 2.2rem; margin-bottom: 40px; }
-        .section-title::after { content: ''; display: block; width: 50px; height: 3px; background: var(--primary); margin: 10px auto; }
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
 
+        .hero-content h1 span {
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Stats Section */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: -60px auto 0;
+            position: relative;
+            z-index: 10;
+            padding: 0 5%;
+        }
+
+        .stat-card {
+            background: rgba(18, 18, 22, 0.9);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--gold-primary);
+            font-family: var(--font-accent);
+        }
+
+        .stat-label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* Section Layouts */
+        .section-padding {
+            padding: 120px 8%;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-subtitle {
+            color: var(--gold-primary);
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-top: 10px;
+        }
+
+        /* Services Grid */
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
         }
 
         .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 24px;
+            padding: 40px 30px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; width: 100%; height: 3px;
+            background: var(--gold-gradient);
+            opacity: 0;
             transition: var(--transition);
         }
-        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        .service-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
 
-        /* Floating WhatsApp */
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: var(--bg-card-hover);
+            border-color: var(--border-color);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+
+        .service-card:hover::before {
+            opacity: 1;
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: var(--gold-primary);
+            margin-bottom: 25px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Booking Section */
+        .booking-container {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 30px;
+            padding: 50px;
+            max-width: 900px;
+            margin: 0 auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+        }
+
+        .booking-form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+
+        .form-control {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 14px 18px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 15px var(--gold-glow);
+        }
+
+        /* Shabbat Banner */
+        .shabbat-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(255, 77, 77, 0.3);
+            color: #ff6b6b;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        /* Floating WhatsApp Button */
         .float-ws {
             position: fixed;
-            bottom: 25px;
-            left: 25px;
-            background: var(--accent);
+            bottom: 30px;
+            left: 30px;
+            background: var(--accent-green);
             color: white;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 32px;
             z-index: 3000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);
             transition: var(--transition);
+            text-decoration: none;
         }
-        .float-ws:hover { transform: scale(1.1) rotate(10deg); }
 
-        /* Contact Box */
-        .contact-box { background: var(--dark); color: white; border-radius: 25px; padding: 50px 20px; text-align: center; }
-        .no-shabbat { color: #ff4d4d; font-weight: bold; display: block; margin-bottom: 15px; font-size: 1.1rem; }
+        .float-ws:hover {
+            transform: scale(1.1) rotate(12deg);
+            box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6);
+        }
 
-        footer { background: #000; color: #888; text-align: center; padding: 25px; font-size: 0.9rem; border-top: 1px solid #222; }
+        /* עיצוב הפוטר */
+        .site-footer {
+            position: relative;
+            background: var(--footer-bg-dark);
+            padding: 32px 24px;
+            box-shadow: 0 -20px 40px rgba(0, 0, 0, 0.15);
+            font-family: 'Assistant', sans-serif;
+            width: 100%;
+        }
 
-        @media (max-width: 768px) {
+        /* פס הילה עליון */
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 1200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, #3b82f6 50%, transparent 100%);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .footer-main-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .footer-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .footer-title {
+            color: var(--footer-text-main);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-subtitle {
+            color: var(--footer-text-muted);
+            font-size: 0.9rem;
+            font-weight: 400;
+        }
+
+        /* כפתור הנעה לפעולה */
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: var(--footer-accent-gradient);
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+        }
+
+        .cta-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            transition: transform 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .cta-btn:hover svg {
+            transform: translateX(-4px);
+        }
+
+        /* שורת קרדיט תחתונה */
+        .footer-bottom-row {
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            padding-top: 16px;
+            text-align: center;
+        }
+
+        .credit-text {
+            color: var(--footer-text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 0.3px;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .credit-text strong {
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
             .nav-links { display: none; }
-            .hero { height: 50vh; min-height: 400px; }
-            .section-padding { padding: 40px 5%; }
+            .hero { padding-top: 160px; }
+            .booking-container { padding: 30px 20px; }
+        }
+
+        @media (max-width: 640px) {
+            .footer-main-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-info {
+                align-items: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 { font-size: 2.2rem; }
+            .stat-card { padding: 20px; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Ambient Glow Effects -->
+    <div class="ambient-glow" style="top: -100px; right: -100px;"></div>
+    <div class="ambient-glow" style="top: 40%; left: -100px;"></div>
+
+    <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="https://i.postimg.cc/MT0f0gTk/image.png" alt="אייל פתרונות נסיעה" height="45">
+        <div class="logo-container">
+            <img src="https://i.postimg.cc/MT0f0gTk/image.png" alt="אייל פתרונות נסיעה" class="logo-img">
+            <span class="brand-name">EYAL VIP</span>
         </div>
         <div class="nav-links">
-            <a href="#home">בית</a>
-            <a href="#about">אודות</a>
-            <a href="#services">שירותים</a>
-            <a href="#contact">הזמנה</a>
+            <a href="#home">ראשי</a>
+            <a href="#about">אודות החוויה</a>
+            <a href="#services">שירותי פרימיום</a>
+            <a href="#booking">הזמנה אונליין</a>
         </div>
+        <a href="tel:0545510276" class="btn btn-gold" style="padding: 10px 24px; font-size: 0.85rem;">
+            <i class="fas fa-phone"></i> 054-551-0276
+        </a>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>אייל פתרונות נסיעה</h1>
-            <p>חוויית נסיעה VIP - מה שנוח ללקוח.</p>
-            <div class="cta-buttons">
-                <a href="tel:0545510276" class="btn btn-primary"><i class="fas fa-phone"></i> חייגו: 054-551-0276</a>
-                <a href="OrderForm.html" class="btn btn-secondary">הזמנת נסיעה</a>
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="hero-badge"><i class="fas fa-crown"></i> Standard of Excellence</div>
+                <h1>פתרונות נסיעה ברמת <span>VIP</span></h1>
+                <p>חוויית נסיעה אולטימטיבית, נהגים פרטיים ברמה הגבוהה ביותר, צי רכבים חדיש ועמידה מדויקת בזמנים. כי הזמן שלך שווה יותר.</p>
+                <div class="cta-buttons cta-group">
+                    <a href="#booking" class="btn btn-gold">
+                        <i class="fas fa-calendar-check"></i> להזמנת נסיעה מהירה
+                    </a>
+                    <a href="https://wa.me/972545510276" class="btn btn-glass">
+                        <i class="fab fa-whatsapp" style="color: var(--accent-green);"></i> מענה מהיר ב-WhatsApp
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Metrics Bar -->
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">עמידה מדויקת בזמנים</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/6</div>
+                <div class="stat-label">זמינות מלאה (ללא שבת)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">VIP</div>
+                <div class="stat-label">רכבי יוקרה חדישים ומפוארים</div>
             </div>
         </div>
-    </section>
 
-    <section class="section-padding" id="about">
-        <h2 class="section-title">הסעות ברמה אחרת</h2>
-        <div style="max-width: 750px; margin: 0 auto; text-align: center;">
-            <p>אנחנו מתמחים במתן פתרונות תחבורה מתקדמים לכל רחבי הארץ. עם דגש על עמידה בזמנים, רכבים נקיים ושירות אדיב, אנחנו מבטיחים לכם שקט נפשי מהרגע שסגרתם ועד ההגעה ליעד.</p>
-        </div>
-    </section>
-
-    <section class="section-padding" id="services" style="background: #f1f1f1;">
-        <h2 class="section-title">השירותים שלנו</h2>
-        <div class="services-grid">
-            <div class="service-card"><i class="fas fa-plane-departure"></i><h3>נתב"ג</h3><p>איסוף והורדה מכל מקום לנתב"ג, 24 שעות ביממה (לא בשבת).</p></div>
-            <div class="service-card"><i class="fas fa-map-marked-alt"></i><h3>בין-עירוני</h3><p>נסיעות ארוכות ונוחות לכל חלקי הארץ במחירים הוגנים.</p></div>
-            <div class="service-card"><i class="fas fa-shuttle-van"></i><h3>קבוצות ואירועים</h3><p>מיניבוסים ואוטובוסים חדישים לחתונה, בר מצווה או טיול.</p></div>
-            <div class="service-card"><i class="fas fa-user-tie"></i><h3>שירות VIP</h3><p>נהגים מקצועיים ודיסקרטיים לנסיעות עסקיות ופרטיות.</p></div>
-        </div>
-    </section>
-
-    <section class="section-padding" id="contact">
-        <div class="contact-box">
-            <span class="no-shabbat">* שומרים שבת - המערכת לא פעילה בשבתות וחגים *</span>
-            <h2>להזמנה מהירה</h2>
-            <p style="margin-bottom: 25px;">לחצו על האמצעי הנוח לכם ונתאם את הנסיעה שלכם</p>
-            <div class="cta-buttons">
-                <a href="https://wa.me/972545510276" class="btn" style="background: var(--accent); color: white;"><i class="fab fa-whatsapp"></i> הודעת WhatsApp</a>
-                <a href="tel:0545510276" class="btn btn-primary"><i class="fas fa-phone-alt"></i> שיחה טלפונית</a>
+        <!-- About Section -->
+        <section class="section-padding" id="about">
+            <div class="section-header">
+                <span class="section-subtitle">על השירות שלנו</span>
+                <h2 class="section-title">לנסוע בראש שקט, להגיע בסטייל</h2>
             </div>
-        </div>
-    </section>
+            <div style="max-width: 800px; margin: 0 auto; text-align: center; color: var(--text-muted); font-size: 1.1rem; line-height: 1.8;">
+                <p>אייל פתרונות נסיעה מגדירה מחדש את סטנדרט ההסעות בישראל. אנו מתמחים במתן מענה מקצועי, יוקרתי ודיסקרטי לאנשי עסקים, אורחים מחו"ל, משלחות ואירועים פרטיים. הצי שלנו כולל רכבים שמתוחזקים ברמת ניקיון ובטיחות ללא פשרות, בליווי נהגים אדיבים ומנוסים שיבטיחו שתגיעו ליעד ברוגע ובנוחות מקסימלית.</p>
+            </div>
+        </section>
 
-    <a href="https://wa.me/972545510276" class="float-ws" title="שלחו לנו הודעה">
+        <!-- Services Section -->
+        <section class="section-padding" id="services" style="background: rgba(255,255,255,0.01);">
+            <div class="section-header">
+                <span class="section-subtitle">מה אנו מציעים</span>
+                <h2 class="section-title">השירותים הנבחרים שלנו</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-plane-departure"></i></div>
+                    <h3>נסיעות לנתב"ג VIP</h3>
+                    <p>איסוף מדויק מהבית או המשרד ישירות לטרמינל, כולל מעקב בזמן אמת אחר לוח הטיסות וסיוע מלא עם הכבודה.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-briefcase"></i></div>
+                    <h3>שירות למגזר העסקי</h3>
+                    <p>הסעות מנהלים, ימי עיון ופתרונות שינוע יומיומיים לארגונים וחברות הייטק ברמת שירות ללא פשרות.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-van-shuttle"></i></div>
+                    <h3>קבוצות ואירועי פרימיום</h3>
+                    <p>מיניבוסים ואוטובוסים מפוארים לאירועים משפחתיים, חתונות, בר מצוות וטיולים מאורגנים ברחבי הארץ.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon-box"><i class="fas fa-user-shield"></i></div>
+                    <h3>שירות VIP ודיסקרטיות</h3>
+                    <p>נהגים צמודים לנסיעות ארוכות, פגישות סודיות ואישים בעלי פרופיל גבוה עם התחייבות לדיסקרטיות מלאה.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking & Contact Section -->
+        <section class="section-padding" id="booking">
+            <div class="section-header">
+                <div class="shabbat-badge">
+                    <i class="fas fa-star-of-david"></i> שומרים שבת - המערכת אינה פעילה בשבתות וחגים
+                </div>
+                <h2 class="section-title">תיאום נסיעה בשיא המהירות</h2>
+                <p style="color: var(--text-muted); margin-top: 10px;">מלאו את הפרטים ונחזור אליכם מידית עם הצעת מחיר מותאמת אישית</p>
+            </div>
+
+            <div class="booking-container">
+                <form class="booking-form" action="https://wa.me/972545510276" method="get" target="_blank">
+                    <div class="form-group">
+                        <label>שם מלא</label>
+                        <input type="text" class="form-control" placeholder="ישראל ישראלי" required>
+                    </div>
+                    <div class="form-group">
+                        <label>טלפון ליצירת קשר</label>
+                        <input type="tel" class="form-control" placeholder="050-0000000" required>
+                    </div>
+                    <div class="form-group">
+                        <label>נקודת איסוף</label>
+                        <input type="text" class="form-control" placeholder="עיר / כתובת איסוף" required>
+                    </div>
+                    <div class="form-group">
+                        <label>יעד נסיעה</label>
+                        <input type="text" class="form-control" placeholder="נתב״ג / עיר יעד" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>סוג השירות / הערות נוספות</label>
+                        <textarea class="form-control" rows="3" placeholder="כמות נוסעים, שעת איסוף מבוקשת, ציוד מיוחד וכד'..."></textarea>
+                    </div>
+                    <div class="form-group full-width" style="margin-top: 15px;">
+                        <button type="submit" class="btn btn-gold" style="width: 100%;">
+                            <i class="fas fa-paper-plane"></i> שלח לבדיקת זמינות והצעת מחיר
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Floating WhatsApp CTA -->
+    <a href="https://wa.me/972545510276" class="float-ws" title="דבר איתנו ב-WhatsApp" target="_blank">
         <i class="fab fa-whatsapp"></i>
     </a>
 
-    <footer>
-        &copy; 2026 אייל פתרונות נסיעה. כל הזכויות שמורות.
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-main-row">
+                <div class="footer-info">
+                    <div class="footer-title">רוצים אתר מעוצב וממיר בדיוק כזה?</div>
+                    <div class="footer-subtitle">עיצוב חווית משתמש מתקדמת ופיתוח ברמה הגבוהה ביותר</div>
+                </div>
+                <a href="https://nn-sites.github.io/NetVibeMedia" class="cta-btn" target="_blank">
+                    <span>רוצים אתר כזה? לחצו כאן!</span>
+                    <svg viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                </a>
+            </div>
+            <div class="footer-bottom-row">
+                <div class="credit-text">
+                 <strong>NetVibeMedia</strong>   האתר נבנה על ידי 
+                </div>
+            </div>
+        </div>
     </footer>
 
 </body>
